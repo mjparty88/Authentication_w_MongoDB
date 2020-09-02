@@ -44,7 +44,7 @@ UserSchema.statics.authenticate = function(email, password, callback) {
         });
 }
 // hash password before saving to the database
-UserScheme.pre('save', function(next) {
+UserSchema.pre('save', function(next) {
     var user = this;
     bcrypt.hash(user.password, 10, function(err, hash) { //calls the encryption algorithm 10 times and then initiates a callback, we we use to store the resulting hash into the database 
         if(err) {
